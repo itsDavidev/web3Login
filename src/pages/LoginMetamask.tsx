@@ -1,7 +1,7 @@
 import { useWeb3React } from '@web3-react/core';
-import { InjectedConnector } from '@web3-react/injected-connector';
 import { useCallback, useEffect } from 'react';
 import styled from 'styled-components';
+import { connector } from '../utils/configMeta';
 
 const StyledLoginMetamask = styled.section`
   grid-column: 1/3;
@@ -20,28 +20,29 @@ const StyledLoginMetamask = styled.section`
     letter-spacing: 3px;
   }
   .loginWhithMetamask {
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     h2 {
       background: transparent;
       box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.5);
       border-radius: 1rem;
       padding: 3rem;
-      color: #0449E9;
+      color: #0449e9;
     }
   }
 `;
 
-const connector = new InjectedConnector({
-  supportedChainIds: [1],
-});
-
 const WebLogin = () => {
-  const { active, account, activate, deactivate, chainId, error } =
+  const { active,
+    account,
+    activate,
+    deactivate,
+    chainId,
+    error 
+  } =
     useWeb3React();
-  console.log(useWeb3React());
 
   const connect = useCallback(() => {
     activate(connector);
@@ -63,21 +64,20 @@ const WebLogin = () => {
 
   if (error) {
     localStorage.removeItem('activeWallet');
-    // return <div>{error.message}</div>;
-    console.log(error);
   }
+
   return (
     <StyledLoginMetamask>
       <div className="metaLogin">
         {active ? (
-          <>
+          <div className="loginWhitMetamask">
             <button onClick={discconect}>disconnect</button>
             <p>
               <strong>Account: </strong>
               {account}
             </p>
             <p>you are connected to {chainId} network</p>
-          </>
+          </div>
         ) : (
           <>
             <div className="loginWhithMetamask">

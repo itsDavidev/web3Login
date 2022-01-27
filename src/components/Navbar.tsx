@@ -3,8 +3,8 @@ import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledNav = styled.nav`
+  grid-column: 1/3;
   .navlogin {
-    grid-column: 1/3;
     position: relative;
     display: flex;
     align-items: center;
@@ -12,7 +12,7 @@ const StyledNav = styled.nav`
   strong {
     margin: 0 2rem;
     font-size: 1.5rem;
-    color: #0449E9;
+    color: #0449e9;
   }
   ul {
     display: flex;
@@ -27,7 +27,7 @@ const StyledNav = styled.nav`
         font-size: 1.2rem;
         text-decoration: none;
         letter-spacing: 3px;
-        text-transform:uppercase;
+        text-transform: uppercase;
       }
     }
   }

@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-// 
+//
 
 const LoginEmail = () => {
+  const evtLogin = (evt: { preventDefault: Function }) => {
+    evt.preventDefault();
+    
+  };
   return (
     <>
       <div className="loginForm">
@@ -13,27 +17,29 @@ const LoginEmail = () => {
           <div className="names">
             <label className="input firstname">
               <strong>name </strong>
-              <input type="text" />
+              <input required type="text" />
             </label>
             <label className="input lastName">
               <strong>last Name </strong>
-              <input type="text" />
+              <input required type="text" />
             </label>
           </div>
           <label className="input email">
             <strong>email </strong>
-            <input type="text" />
+            <input required type="text" />
           </label>
           <label className="input password">
             <strong>password </strong>
-            <input type="password" />
+            <input required type="password" />
           </label>
           <label className="submitForm">
-            <button type="submit">Login</button>
+            <button onClick={evtLogin} type="submit">
+              Login
+            </button>
           </label>
         </form>
         <div className="submit">
-          <button>create acount</button>
+          <button onClick={evtLogin}>create acount</button>
         </div>
       </div>
       <div className="loginLogo">

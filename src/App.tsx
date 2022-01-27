@@ -1,16 +1,12 @@
 // import { connector, getLibreray } from '../config/web3';
 import { Web3ReactProvider } from '@web3-react/core';
-import { Web3Provider } from '@ethersproject/providers';
 import WebLogin from './pages/LoginMetamask';
 import styled from 'styled-components';
 import LoginEmail from './pages/LoginEmail';
 import { Route, Routes, BrowserRouter, Navigate } from 'react-router-dom';
 import Welcome from './pages/Welcome';
 import Navbar from './components/Navbar';
-
-function getLibrary(provider: any) {
-  return new Web3Provider(provider);
-}
+import { getLibrary } from './utils/configMeta';
 
 const StyledLogin = styled.main`
   display: flex;
